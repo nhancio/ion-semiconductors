@@ -8,7 +8,11 @@ import {
 
 const roleBasedCourses = [
   { title: 'RTL Design Engineer', icon: <Cpu className="h-10 w-10" /> },
-  { title: 'Verification Engineer', icon: <Code className="h-10 w-10" /> },
+  { 
+    title: 'Verification Engineer', 
+    icon: <Code className="h-10 w-10" />,
+    roadmapUrl: 'https://roadmap.sh/r/verification'
+  },
   { title: 'DFT Engineer', icon: <Wrench className="h-10 w-10" /> },
   { title: 'Synthesis and STA Engineer', icon: <Clock className="h-10 w-10" /> },
   { title: 'PD Engineer', icon: <Layout className="h-10 w-10" /> },
@@ -29,23 +33,28 @@ const languageCourses = [
 const protocolCourses = [
   { 
     title: 'AMBA AXI4', 
-    content: 'Advanced eXtensible Interface 4 protocol for high-performance, high-frequency system designs with separate address/control and data phases.'
+    content: 'Advanced eXtensible Interface 4 protocol for high-performance, high-frequency system designs with separate address/control and data phases.',
+    icon: <Cpu className="h-10 w-10" />
   },
   { 
     title: 'UART, SPI, I2C', 
-    content: 'Essential communication protocols for embedded systems: Universal Asynchronous Receiver/Transmitter, Serial Peripheral Interface, and Inter-Integrated Circuit.'
+    content: 'Essential communication protocols for embedded systems: Universal Asynchronous Receiver/Transmitter, Serial Peripheral Interface, and Inter-Integrated Circuit.',
+    icon: <Cpu className="h-10 w-10" />
   },
   { 
     title: 'PCIe Gen5', 
-    content: 'PCI Express Generation 5.0 with 32GT/s data transfer rates, used for high-speed connectivity in computing platforms.'
+    content: 'PCI Express Generation 5.0 with 32GT/s data transfer rates, used for high-speed connectivity in computing platforms.',
+    icon: <Cpu className="h-10 w-10" />
   },
   { 
     title: 'CxL 2.0', 
-    content: 'Compute Express Link 2.0, an open industry standard for high-speed CPU-to-device and CPU-to-memory connections.'
+    content: 'Compute Express Link 2.0, an open industry standard for high-speed CPU-to-device and CPU-to-memory connections.',
+    icon: <Cpu className="h-10 w-10" />
   },
   { 
     title: 'Automotive Protocols (CAN, LIN, FLEXRAY)', 
-    content: 'Specialized communication protocols for automotive applications: Controller Area Network, Local Interconnect Network, and FlexRay for safety-critical systems.'
+    content: 'Specialized communication protocols for automotive applications: Controller Area Network, Local Interconnect Network, and FlexRay for safety-critical systems.',
+    icon: <Cpu className="h-10 w-10" />
   },
 ];
 
@@ -121,9 +130,20 @@ const Courses: React.FC = () => {
               <div className="text-blue-600 mb-4">{course.icon}</div>
               <h4 className="text-xl font-semibold text-gray-800 mb-2">{course.title}</h4>
               <p className="text-gray-600">Comprehensive training for {course.title.toLowerCase()} roles in the semiconductor industry.</p>
-              <button className="mt-4 text-blue-600 font-medium hover:text-blue-800 transition-colors">
-                Learn more →
-              </button>
+              {course.roadmapUrl ? (
+                <a 
+                  href={course.roadmapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                >
+                  View Roadmap →
+                </a>
+              ) : (
+                <button className="mt-4 text-blue-600 font-medium hover:text-blue-800 transition-colors">
+                  Learn more →
+                </button>
+              )}
             </motion.div>
           ))}
         </div>
@@ -158,47 +178,24 @@ const Courses: React.FC = () => {
       </motion.div>
 
       {/* Protocol Courses */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
+      <motion.div variants={containerVariants} initial="hidden" animate={inView ? "visible" : "hidden"} className="mb-16">
         <motion.h3 variants={itemVariants} className="text-2xl font-bold text-gray-800 mb-8 text-center">
           Protocol Courses
         </motion.h3>
         
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {protocolCourses.map((course, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
             >
-              <button
-                className="w-full flex justify-between items-center p-4 bg-white hover:bg-gray-50 transition-colors focus:outline-none"
-                onClick={() => toggleAccordion(index)}
-              >
-                <span className="text-lg font-medium text-gray-800">{course.title}</span>
-                {expandedAccordion === index ? (
-                  <ChevronUp className="h-5 w-5 text-blue-600" />
-                ) : (
-                  <ChevronDown className="h-5 w-5 text-blue-600" />
-                )}
+              <div className="text-blue-600 mb-4">{course.icon}</div>
+              <h4 className="text-xl font-semibold text-gray-800 mb-2">{course.title}</h4>
+              <p className="text-gray-600">{course.content}</p>
+              <button className="mt-4 text-blue-600 font-medium hover:text-blue-800 transition-colors">
+                Learn more →
               </button>
-              
-              <motion.div
-                initial={false}
-                animate={{ height: expandedAccordion === index ? 'auto' : 0, opacity: expandedAccordion === index ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
-                <div className="p-4 bg-gray-50 border-t border-gray-200">
-                  <p className="text-gray-700">{course.content}</p>
-                  <button className="mt-2 text-blue-600 font-medium hover:text-blue-800 transition-colors">
-                    Learn more →
-                  </button>
-                </div>
-              </motion.div>
             </motion.div>
           ))}
         </div>
