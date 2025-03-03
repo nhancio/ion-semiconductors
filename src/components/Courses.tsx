@@ -109,13 +109,8 @@ const Courses: React.FC = () => {
         </motion.p>
       </motion.div>
 
-      {/* Role-Based Courses */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        className="mb-16"
-      >
+      {/* Role-based Courses Section */}
+      <section id="role-based-courses" className="pt-16">
         <motion.h3 variants={itemVariants} className="text-2xl font-bold text-gray-800 mb-8 text-center">
           Role-Based Courses
         </motion.h3>
@@ -147,15 +142,10 @@ const Courses: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </section>
 
-      {/* Language Courses */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        className="mb-16"
-      >
+      {/* Language Courses Section */}
+      <section id="language-courses" className="pt-16">
         <motion.h3 variants={itemVariants} className="text-2xl font-bold text-gray-800 mb-8 text-center">
           Language Courses
         </motion.h3>
@@ -175,10 +165,10 @@ const Courses: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </section>
 
-      {/* Protocol Courses */}
-      <motion.div variants={containerVariants} initial="hidden" animate={inView ? "visible" : "hidden"} className="mb-16">
+      {/* Protocol Courses Section */}
+      <section id="protocol-courses" className="pt-16">
         <motion.h3 variants={itemVariants} className="text-2xl font-bold text-gray-800 mb-8 text-center">
           Protocol Courses
         </motion.h3>
@@ -199,7 +189,7 @@ const Courses: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </section>
     </div>
   );
 };

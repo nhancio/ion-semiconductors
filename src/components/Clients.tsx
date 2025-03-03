@@ -5,45 +5,53 @@ import { useInView } from 'react-intersection-observer';
 const clients = [
   {
     id: 1,
-    name: 'Aditya Sharma',
-    role: 'RTL Design Engineer at Intel',
-    image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-    testimonial: 'The RTL design course at Ion Semiconductors gave me the practical skills I needed to land my dream job at Intel.'
+    image: '/src/assets/successstories/1.jpeg',
+    testimonial: 'From dreams to reality! With ionsemi guidance, selected to dream client. They\'re now contributing to excellent guidance in SV, UVM, protocols and projects.'
   },
   {
     id: 2,
-    name: 'Priya Patel',
-    role: 'Verification Engineer at AMD',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-    testimonial: 'The SystemVerilog and UVM training was comprehensive and hands-on. It prepared me well for my role at AMD.'
+    image: '/src/assets/successstories/2.jpeg',
+    testimonial: 'The verification guidance was excellent. The projects were challenging and prepared me to get selected topmost clients in industry.'
   },
   {
     id: 3,
-    name: 'Rahul Verma',
-    role: 'PD Engineer at Qualcomm',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-    testimonial: 'The physical design course was excellent. The instructors have industry experience and provided practical insights.'
+    image: '/src/assets/successstories/3.jpeg',
+    testimonial: 'The SystemVerilog and UVM projects were comprehensive and hands-on. It prepared me well for my role at AMD.'
   },
   {
     id: 4,
-    name: 'Sneha Gupta',
-    role: 'DFT Engineer at Samsung',
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-    testimonial: 'The DFT training at Ion Semiconductors is top-notch. I learned industry-standard tools and methodologies.'
+    image: '/src/assets/successstories/4.jpeg',
+    testimonial: 'Assignments are designed to assess a candidate\'s skills with which weak areas were identified. Verification experts help us to clear the doubts after tests and make strong in weak areas.'
   },
   {
     id: 5,
-    name: 'Vikram Singh',
-    role: 'Analog Design Engineer at Texas Instruments',
-    image: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-    testimonial: 'The analog design course was comprehensive and practical. It helped me secure a position at TI.'
+    image: '/src/assets/successstories/5.jpeg',
+    testimonial: 'Multiple pre-tests and mock interviews helped me a lot to crack the interviews. DFT design experts at Ion Semiconductors gave me the practical skills I needed to land my dream job at top most client in industry.'
   },
   {
     id: 6,
-    name: 'Ananya Reddy',
-    role: 'ASIC Verification Engineer at NVIDIA',
-    image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-    testimonial: 'The verification course was excellent. The projects were challenging and prepared me for real-world scenarios.'
+    image: '/src/assets/successstories/6.jpeg',
+    testimonial: 'The DFT at Ion Semiconductors is top-notch. I learned industry-standard tools and methodologies. In short Ion Semi is a good stage to gain knowledge and prepare for your career.'
+  },
+  {
+    id: 7,
+    image: '/src/assets/successstories/7.jpeg',
+    testimonial: 'The DFT at IonSemi was excellent. The instructors have industry experience and provided practical insights.'
+  },
+  {
+    id: 8,
+    image: '/src/assets/successstories/8.jpeg',
+    testimonial: 'The DFT at IonSemi was comprehensive and practical. It helped me secure a position at AMD. And about the staff, all are well experienced, trained and also very friendly to everyone.'
+  },
+  {
+    id: 9,
+    image: '/src/assets/successstories/9.jpeg',
+    testimonial: 'Initially, I found the Analog topics to be rather difficult & also I found it difficult to explain what I have learnt. The soft skill sessions, regular presentations and technical assemblages helped me here.'
+  },
+  {
+    id: 10,
+    image: '/src/assets/successstories/10.jpeg',
+    testimonial: 'One of the main advantage in ionsemi is it focuses on self learning. I am happy to say that I learnt SV,UVM in flipped mode which helped me in getting placed in client location.'
   }
 ];
 
@@ -96,33 +104,55 @@ const Clients: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {clients.map((client) => (
+        {clients.slice(0, 9).map((client) => (
           <motion.div
             key={client.id}
             variants={itemVariants}
-            className="group"
+            className="group min-h-[450px]"
           >
-            <div className="relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300">
-              <div className="p-6 text-center">
-                <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-blue-100">
-                  <img
-                    src={client.image}
-                    alt={client.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800">{client.name}</h3>
-                <p className="text-blue-600 mb-4">{client.role}</p>
-                
-                <div className="h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:h-auto group-hover:opacity-100">
-                  <p className="text-gray-600 italic">"{client.testimonial}"</p>
-                </div>
+            <div className="relative h-full overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+              <div className="w-full h-80"> {/* Increased height from h-72 to h-80 */}
+                <img
+                  src={client.image}
+                  alt={`Success Story ${client.id}`}
+                  className="w-full h-full object-cover object-center" /* Added object-center */
+                />
+              </div>
+              
+              <div className="p-4 flex-1 overflow-y-auto">
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  "{client.testimonial}"
+                </p>
               </div>
             </div>
           </motion.div>
         ))}
+
+        {clients.length === 10 && (
+          <motion.div
+            key={clients[9].id}
+            variants={itemVariants}
+            className="group min-h-[450px] lg:col-start-2"
+          >
+            <div className="relative h-full overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+              <div className="w-full h-80">
+                <img
+                  src={clients[9].image}
+                  alt={`Success Story ${clients[9].id}`}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              
+              <div className="p-4 flex-1 overflow-y-auto">
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  "{clients[9].testimonial}"
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </motion.div>
 
       <motion.div

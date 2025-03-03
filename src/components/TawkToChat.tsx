@@ -1,24 +1,32 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
-const TawkToChat: React.FC = () => {
+declare global {
+  interface Window {
+    Tawk_API?: any;
+    Tawk_LoadStart?: any;
+  }
+}
+
+const TawkToChat = () => {
   useEffect(() => {
-    // Tawk.to integration script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://embed.tawk.to/YOUR_TAWK_TO_PROPERTY_ID/default'; // Replace with your actual Tawk.to property ID
-    script.charset = 'UTF-8';
-    script.setAttribute('crossorigin', '*');
-    document.head.appendChild(script);
+    // Tawk.to Script
+    const s1 = document.createElement("script");
+    const s0 = document.getElementsByTagName("script")[0];
+    
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/67c2db6bce305519103664c1/1il8ii74o';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    
+    s0.parentNode?.insertBefore(s1, s0);
 
     return () => {
-      // Clean up the script when component unmounts
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      // Cleanup if needed
+      s1.remove();
     };
   }, []);
 
-  return null; // This component doesn't render anything visible
+  return null;
 };
 
 export default TawkToChat;

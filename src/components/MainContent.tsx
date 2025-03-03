@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from './Hero';
 import About from './About';
 import Courses from './Courses';
-import Services from './Services';
 import Clients from './Clients';
 import Contact from './Contact';
 import Footer from './Footer';
@@ -20,9 +19,6 @@ const MainContent: React.FC = () => {
         </section>
         <section id="courses" className="py-16">
           <Courses />
-        </section>
-        <section id="services" className="py-16 bg-gray-50">
-          <Services />
         </section>
         <section id="clients" className="py-16">
           <Clients />

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
-import { MapPin, Clock, Phone, Mail } from 'lucide-react';
+import { Clock, Phone, Mail } from 'lucide-react';
 
 type FormData = {
   firstName: string;
@@ -77,16 +77,6 @@ const Contact: React.FC = () => {
         >
           <motion.div variants={itemVariants} className="flex items-start">
             <div className="flex-shrink-0">
-              <MapPin className="h-6 w-6 text-blue-600" />
-            </div>
-            <div className="ml-4">
-              <h3 className="text-lg font-medium text-gray-900">Location</h3>
-              <p className="mt-1 text-gray-600">Hyderabad, India</p>
-            </div>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="flex items-start">
-            <div className="flex-shrink-0">
               <Clock className="h-6 w-6 text-blue-600" />
             </div>
             <div className="ml-4">
@@ -112,22 +102,6 @@ const Contact: React.FC = () => {
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900">Email</h3>
               <p className="mt-1 text-gray-600">info@ionsemiconductors.com</p>
-            </div>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="mt-8">
-            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3179435398!2d78.24323111953124!3d17.41229999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" 
-                width="600" 
-                height="450" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ion Semiconductors Location"
-                className="w-full h-full"
-              ></iframe>
             </div>
           </motion.div>
         </motion.div>
