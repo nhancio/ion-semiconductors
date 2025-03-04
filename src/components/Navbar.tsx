@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Cpu } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const courseItems = [
   { 
@@ -145,8 +145,7 @@ const Navbar: React.FC = () => {
             className="flex items-center cursor-pointer"
             onClick={handleLogoClick}
           >
-            <Cpu className="h-8 w-8 text-primary" />
-            <span className="ml-2 text-2xl font-serif font-bold text-gray-900">Ion Semiconductors</span>
+            <img src="/src/assets/ion-logo.jpeg" alt="Ion Semiconductors Logo" className="h-12 w-50" />
           </div>
           
           {/* Desktop Navigation */}
