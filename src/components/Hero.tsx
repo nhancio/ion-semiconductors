@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
 
 const slides = [
   {
@@ -67,9 +68,16 @@ const Hero: React.FC = () => {
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h1>
             <p className="text-xl md:text-2xl max-w-3xl">{slide.subtitle}</p>
-            <button className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-transform hover:-translate-y-1">
+            <Link
+              to="courses"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-transform hover:-translate-y-1 cursor-pointer"
+            >
               Explore Courses
-            </button>
+            </Link>
           </motion.div>
         </div>
       ))}

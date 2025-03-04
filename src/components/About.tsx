@@ -59,17 +59,7 @@ const About: React.FC = () => {
             Our comprehensive training programs are designed to bridge the gap between academic knowledge and industry requirements, ensuring our students are job-ready upon completion.
           </motion.p>
           
-          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-            <div className="flex items-start">
-              <div className="flex-shrink-0">
-                <MapPin className="h-6 w-6 text-blue-600" />
-              </div>
-              <div className="ml-3">
-                <h3 className="text-lg font-medium text-gray-900">Location</h3>
-                <p className="mt-1 text-gray-600">Hyderabad, India</p>
-              </div>
-            </div>
-            
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <div className="flex items-start">
               <div className="flex-shrink-0">
                 <Users className="h-6 w-6 text-blue-600" />
